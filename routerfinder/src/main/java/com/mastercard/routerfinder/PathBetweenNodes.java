@@ -9,7 +9,7 @@ public class PathBetweenNodes
    
     private static String  START;
     private static String  END;
-    private static boolean flag;
+    
     
     public Boolean isConnected(String node1,String node2){
     	 LinkedList<String> visited = new LinkedList<>();
@@ -21,7 +21,7 @@ public class PathBetweenNodes
  
     private static Boolean breadthFirst(PathGraph graph,LinkedList<String> visited) {
         LinkedList<String> nodes = graph.adjacentNodes(visited.getLast());
- 
+        boolean flag = false;
         for (String node : nodes){
             if (visited.contains(node)){
                 continue;
