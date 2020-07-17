@@ -35,9 +35,9 @@ public class PathGraph {
 			FileReader fr=new FileReader(file); 
 			BufferedReader br=new BufferedReader(fr); 
 			String line;  
-			while((line=br.readLine())!=null) {
+			while((line=br.readLine())!=null) {  
 				String[] arr =line.split(",");
-				this.addEdge(arr[0], arr[1].trim());
+				this.addEdge(arr[0], arr[1]);
 			}  
 			fr.close(); 
 		}  
