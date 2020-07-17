@@ -14,13 +14,16 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor(onConstructor = @__({ @Autowired }))
 public class RouteController {
 
+	@Autowired
+	public PathBetweenNodes pathBetweenNodes;
+	
 	@RequestMapping(params = {"origin", "destination"}, path = {""}, 
 			method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String showMessage(
+	public @ResponseBody Boolean showMessage(
 			@RequestParam(value = "origin", required = false) String origin,
 			@RequestParam(value = "destination", required = false) String destination) {
 		System.out.println("in controller");
-		return "Status of Route between "+ origin + " and "+ destination;
+		return pathBetweenNodes.isConnected(origin,destination);
 	}
 
 	@RequestMapping("/")
